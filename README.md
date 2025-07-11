@@ -22,3 +22,12 @@ This project is built with a modern web stack:
 - **Genkit:** For integrating powerful generative AI features.
 
 To get started with the code, take a look at `src/app/page.tsx`.
+
+## Contributing
+
+We welcome contributions to PathFinder! If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with clear, descriptive messages.
+4. Push your branch and open a pull request.

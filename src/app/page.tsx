@@ -13,7 +13,7 @@ export default function Home() {
         <section className="w-full py-20 md:py-32 lg:py-40 xl:py-48 bg-background">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-1 text-center">
-              <div className="flex flex-col items-center justify-center space-y-4">
+              <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-4">
                   <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                     Find Your Future with PathFinder
