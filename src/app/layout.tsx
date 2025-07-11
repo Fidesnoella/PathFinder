@@ -4,7 +4,7 @@ import { Header } from "@/components/header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "College Compass",
+  title: "PathFinder",
   description: "Your guide to university success. Explore departments, discover career paths, and get personalized recommendations.",
 };
 

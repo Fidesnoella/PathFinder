@@ -1,4 +1,4 @@
-import { Computer, Code2, DatabaseZap, LucideIcon } from "lucide-react";
+import { Computer, Code2, DatabaseZap, Network, LucideIcon } from "lucide-react";
 
 export interface Department {
   slug: string;
@@ -7,7 +7,7 @@ export interface Department {
   longDescription: string;
   icon: LucideIcon;
   courses: { title: string; description: string; topics: string[] }[];
-  careers: { title: string; description: string; salary: string }[];
+  careers: { title: string; description: string }[];
   research: { title: string; description: string }[];
   testimonials: { studentName: string; quote: string; imageUrl: string, program: string }[];
 }
@@ -37,10 +37,10 @@ export const departmentsData: Department[] = [
       },
     ],
     careers: [
-        { title: "Software Engineer", description: "Design, develop, and maintain software applications for various platforms, from web to mobile.", salary: "Avg. Salary: $110,000" },
-        { title: "AI/ML Engineer", description: "Build and deploy machine learning models and artificial intelligence systems to solve complex problems.", salary: "Avg. Salary: $130,000" },
-        { title: "Cybersecurity Specialist", description: "Protect computer systems and networks from security threats and cyber attacks through analysis and defense.", salary: "Avg. Salary: $105,000" },
-        { title: "Research Scientist", description: "Conduct research to advance the field of computer science in academic or industrial settings.", salary: "Avg. Salary: $125,000" }
+        { title: "Software Engineer", description: "Design, develop, and maintain software applications for various platforms, from web to mobile." },
+        { title: "AI/ML Engineer", description: "Build and deploy machine learning models and artificial intelligence systems to solve complex problems." },
+        { title: "Cybersecurity Specialist", description: "Protect computer systems and networks from security threats and cyber attacks through analysis and defense." },
+        { title: "Research Scientist", description: "Conduct research to advance the field of computer science in academic or industrial settings." }
     ],
     research: [
       { title: "Quantum Computing", description: "Investigating the potential of quantum mechanics to revolutionize computation and solve problems intractable for classical computers." },
@@ -74,10 +74,10 @@ export const departmentsData: Department[] = [
         },
     ],
     careers: [
-        { title: "Full Stack Developer", description: "Work on both the front-end (user interface) and back-end (server logic) of web applications.", salary: "Avg. Salary: $100,000" },
-        { title: "DevOps Engineer", description: "Bridge the gap between software development and IT operations to automate and streamline processes.", salary: "Avg. Salary: $115,000" },
-        { title: "Mobile App Developer", description: "Create applications for smartphones and tablets on platforms like iOS and Android.", salary: "Avg. Salary: $108,000" },
-        { title: "Software Architect", description: "Make high-level design choices and dictate technical standards for software projects.", salary: "Avg. Salary: $140,000" }
+        { title: "Full Stack Developer", description: "Work on both the front-end (user interface) and back-end (server logic) of web applications." },
+        { title: "DevOps Engineer", description: "Bridge the gap between software development and IT operations to automate and streamline processes." },
+        { title: "Mobile App Developer", description: "Create applications for smartphones and tablets on platforms like iOS and Android." },
+        { title: "Software Architect", description: "Make high-level design choices and dictate technical standards for software projects." }
     ],
     research: [
         { title: "Microservices Architecture", description: "Exploring best practices for building and deploying scalable, independently deployable microservices to create resilient systems." },
@@ -111,10 +111,10 @@ export const departmentsData: Department[] = [
         },
     ],
     careers: [
-        { title: "Data Scientist", description: "Use analytical and programming skills to collect, analyze, and interpret large data sets to drive business decisions.", salary: "Avg. Salary: $120,000" },
-        { title: "Data Analyst", description: "Translate data into valuable business insights through reports, dashboards, and visualizations.", salary: "Avg. Salary: $85,000" },
-        { title: "Machine Learning Engineer", description: "Design, build, and deploy production-ready machine learning systems at scale.", salary: "Avg. Salary: $135,000" },
-        { title: "Data Engineer", description: "Develop and maintain robust and scalable data pipelines and architectures.", salary: "Avg. Salary: $118,000" }
+        { title: "Data Scientist", description: "Use analytical and programming skills to collect, analyze, and interpret large data sets to drive business decisions." },
+        { title: "Data Analyst", description: "Translate data into valuable business insights through reports, dashboards, and visualizations." },
+        { title: "Machine Learning Engineer", description: "Design, build, and deploy production-ready machine learning systems at scale." },
+        { title: "Data Engineer", description: "Develop and maintain robust and scalable data pipelines and architectures." }
     ],
     research: [
         { title: "Deep Learning for Medical Imaging", description: "Applying convolutional neural networks to accurately diagnose diseases from medical scans like X-rays and MRIs." },
@@ -122,6 +122,43 @@ export const departmentsData: Department[] = [
     ],
     testimonials: [
         { studentName: "Emily White", quote: "I love how this field combines statistics, coding, and critical thinking. The capstone project was a highlight of my college experience.", imageUrl: "https://placehold.co/100x100.png", program: "M.S. in Data Science, 2023" },
+    ],
+  },
+  {
+    slug: "information-technology",
+    name: "Information Technology",
+    icon: Network,
+    description: "Focus on the practical application of technology to solve business and organizational problems.",
+    longDescription: "The Information Technology (IT) department prepares students to manage and support the technological infrastructure of modern organizations. The curriculum covers networking, system administration, cybersecurity, and IT project management, ensuring graduates are ready to tackle real-world challenges.",
+    courses: [
+        { 
+          title: "Networking Fundamentals", 
+          description: "Understand the principles of computer networking, including TCP/IP, routing, switching, and network security.",
+          topics: ["OSI Model", "IP Addressing", "Network Protocols", "Wireless Networking"]
+        },
+        { 
+          title: "System Administration", 
+          description: "Learn to manage and maintain operating systems, servers, and other critical IT infrastructure components.",
+          topics: ["Windows & Linux Server", "Virtualization", "Directory Services", "Scripting & Automation"]
+        },
+        { 
+          title: "Cybersecurity Principles", 
+          description: "Explore the core concepts of cybersecurity, including threat analysis, risk management, and defensive strategies.",
+          topics: ["Security Policies", "Access Control", "Cryptography", "Incident Response"]
+        },
+    ],
+    careers: [
+        { title: "IT Manager", description: "Oversee an organization's entire technology infrastructure, managing teams and strategic planning." },
+        { title: "Network Administrator", description: "Responsible for the maintenance and security of a company's computer networks." },
+        { title: "Systems Analyst", description: "Analyze and design information systems to help organizations operate more efficiently and effectively." },
+        { title: "IT Support Specialist", description: "Provide technical assistance and troubleshooting support to end-users within an organization." }
+    ],
+    research: [
+        { title: "Cloud Infrastructure Management", description: "Investigating best practices for designing, deploying, and managing secure and cost-effective cloud solutions on platforms like AWS and Azure." },
+        { title: "IoT Security", description: "Developing security protocols and frameworks to protect the growing number of interconnected devices in the Internet of Things (IoT)." },
+    ],
+    testimonials: [
+        { studentName: "Michael Brown", quote: "The IT program gave me the practical skills I needed to hit the ground running. The hands-on labs were invaluable for my career as a network administrator.", imageUrl: "https://placehold.co/100x100.png", program: "B.S. in Information Technology, 2023" },
     ],
   },
 ];

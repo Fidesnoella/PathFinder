@@ -83,7 +83,6 @@ export default function DepartmentDetailPage({ params }: { params: { slug: strin
                     <Card key={index} className="bg-secondary/50 border-primary/20 border-t-4 hover:shadow-lg transition-shadow">
                       <CardHeader>
                         <CardTitle className="text-xl text-primary">{career.title}</CardTitle>
-                        <p className="text-sm text-muted-foreground pt-1">{career.salary}</p>
                       </CardHeader>
                       <CardContent>
                         <p className="text-foreground">{career.description}</p>
