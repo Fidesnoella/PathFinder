@@ -9,7 +9,7 @@ export interface Department {
   courses: { title: string; description: string; topics: string[] }[];
   careers: { title: string; description: string }[];
   research: { title: string; description: string }[];
-  testimonials: { studentName: string; quote: string; imageUrl: string, program: string }[];
+  testimonials: { studentName: string; quote: string; program: string }[];
 }
 
 export const departmentsData: Department[] = [
@@ -47,7 +47,8 @@ export const departmentsData: Department[] = [
       { title: "Natural Language Processing", description: "Developing models that can understand, interpret, and generate human language, powering chatbots, translation services, and more." },
     ],
     testimonials: [
-      { studentName: "Jane Doe", quote: "The CS department prepared me for a fantastic career in tech. The faculty is top-notch and the curriculum is cutting-edge!", imageUrl: "https://placehold.co/100x100.png", program: "B.S. in Computer Science, 2023" },
+      { studentName: "Jane Doe", quote: "The CS department prepared me for a fantastic career in tech. The faculty is top-notch and the curriculum is cutting-edge!", program: "B.S. in Computer Science, 2023" },
+      { studentName: "Alex Ray", quote: "The AI course was mind-blowing. It opened up a whole new world of possibilities and directly led to my current job.", program: "B.S. in Computer Science, 2023" },
     ],
   },
   {
@@ -84,7 +85,8 @@ export const departmentsData: Department[] = [
         { title: "Automated Software Testing", description: "Developing AI-powered tools for automated testing and bug detection, improving software quality and reliability." },
     ],
     testimonials: [
-        { studentName: "John Smith", quote: "The hands-on projects were incredible. I built a full-stack application that landed me my first job before I even graduated.", imageUrl: "https://placehold.co/100x100.png", program: "B.S. in Software Engineering, 2024" },
+        { studentName: "John Smith", quote: "The hands-on projects were incredible. I built a full-stack application that landed me my first job before I even graduated.", program: "B.S. in Software Engineering, 2024" },
+        { studentName: "Maria Garcia", quote: "I loved the collaborative environment. Working in teams on real-world projects prepared me for the industry.", program: "B.S. in Software Engineering, 2024" },
     ],
   },
   {
@@ -121,7 +123,8 @@ export const departmentsData: Department[] = [
         { title: "Ethical AI and Algorithmic Fairness", description: "Studying the societal impact of AI and developing methods to ensure algorithms are fair, transparent, and accountable." },
     ],
     testimonials: [
-        { studentName: "Emily White", quote: "I love how this field combines statistics, coding, and critical thinking. The capstone project was a highlight of my college experience.", imageUrl: "https://placehold.co/100x100.png", program: "M.S. in Data Science, 2023" },
+        { studentName: "Emily White", quote: "I love how this field combines statistics, coding, and critical thinking. The capstone project was a highlight of my college experience.", program: "M.S. in Data Science, 2023" },
+        { studentName: "David Lee", quote: "The professors are not just teachers, but also mentors who are genuinely invested in your success.", program: "M.S. in Data Science, 2023" },
     ],
   },
   {
@@ -158,7 +161,8 @@ export const departmentsData: Department[] = [
         { title: "IoT Security", description: "Developing security protocols and frameworks to protect the growing number of interconnected devices in the Internet of Things (IoT)." },
     ],
     testimonials: [
-        { studentName: "Michael Brown", quote: "The IT program gave me the practical skills I needed to hit the ground running. The hands-on labs were invaluable for my career as a network administrator.", imageUrl: "https://placehold.co/100x100.png", program: "B.S. in Information Technology, 2023" },
+        { studentName: "Michael Brown", quote: "The IT program gave me the practical skills I needed to hit the ground running. The hands-on labs were invaluable for my career as a network administrator.", program: "B.S. in Information Technology, 2023" },
+        { studentName: "Sarah Chen", quote: "Cybersecurity was my favorite track. The ethical hacking classes were both challenging and incredibly fun.", program: "B.S. in Information Technology, 2023" },
     ],
   },
 ];

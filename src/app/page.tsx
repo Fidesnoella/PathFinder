@@ -3,8 +3,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { departmentsData } from "@/data/departments";
 import { ArrowRight, Bot, Compass } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-
 
 export default function Home() {
   const featuredDepartments = departmentsData.slice(0, 3);
@@ -14,8 +12,8 @@ export default function Home() {
       <main className="flex-1">
         <section className="w-full py-20 md:py-32 lg:py-40 xl:py-48 bg-background">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-              <div className="flex flex-col justify-center space-y-4">
+            <div className="grid gap-6 lg:grid-cols-1 text-center">
+              <div className="flex flex-col items-center justify-center space-y-4">
                 <div className="space-y-4">
                   <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                     Find Your Future with PathFinder
@@ -39,14 +37,6 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
-              <Image
-                src="https://placehold.co/600x400.png"
-                width="600"
-                height="400"
-                alt="Hero"
-                data-ai-hint="students collaborating"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
-              />
             </div>
           </div>
         </section>

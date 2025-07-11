@@ -2,8 +2,8 @@ import { departmentsData, Department } from "@/data/departments";
 import { notFound } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Briefcase, FlaskConical, MessageSquareQuote, CheckCircle } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { BookOpen, Briefcase, FlaskConical, MessageSquareQuote, CheckCircle, User } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 export async function generateStaticParams() {
   return departmentsData.map((dept) => ({
@@ -121,9 +121,10 @@ export default function DepartmentDetailPage({ params }: { params: { slug: strin
                     <blockquote key={index} className="p-6 border-l-4 border-primary bg-secondary/50 rounded-r-lg shadow-sm">
                       <p className="italic text-lg mb-4">"{testimonial.quote}"</p>
                       <footer className="flex items-center gap-4">
-                        <Avatar className="h-12 w-12">
-                          <AvatarImage src={testimonial.imageUrl} alt={testimonial.studentName} data-ai-hint="student photo" />
-                          <AvatarFallback>{testimonial.studentName.charAt(0)}</AvatarFallback>
+                        <Avatar className="h-12 w-12 bg-muted text-muted-foreground">
+                           <AvatarFallback>
+                             <User className="h-6 w-6" />
+                           </AvatarFallback>
                         </Avatar>
                         <div>
                           <cite className="font-semibold text-base not-italic text-primary">{testimonial.studentName}</cite>
