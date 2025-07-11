@@ -2,9 +2,7 @@ import { departmentsData, Department } from "@/data/departments";
 import { notFound } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
-import { BookOpen, Briefcase, Users, FlaskConical, MessageSquareQuote, GraduationCap } from "lucide-react";
+import { BookOpen, Briefcase, FlaskConical, MessageSquareQuote } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export async function generateStaticParams() {
@@ -24,7 +22,7 @@ export default function DepartmentDetailPage({ params }: { params: { slug: strin
     notFound();
   }
 
-  const { name, icon: Icon, longDescription, courses, careers, faculty, research, testimonials } = department;
+  const { name, icon: Icon, longDescription, courses, careers, research, testimonials } = department;
 
   return (
     <div className="bg-secondary">
@@ -40,10 +38,9 @@ export default function DepartmentDetailPage({ params }: { params: { slug: strin
         </header>
 
         <Tabs defaultValue="courses" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 h-auto">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-2 lg:grid-cols-4 h-auto">
             <TabsTrigger value="courses"><BookOpen className="mr-2 h-4 w-4"/>Courses</TabsTrigger>
             <TabsTrigger value="careers"><Briefcase className="mr-2 h-4 w-4"/>Careers</TabsTrigger>
-            <TabsTrigger value="faculty"><Users className="mr-2 h-4 w-4"/>Faculty</TabsTrigger>
             <TabsTrigger value="research"><FlaskConical className="mr-2 h-4 w-4"/>Research</TabsTrigger>
             <TabsTrigger value="testimonials"><MessageSquareQuote className="mr-2 h-4 w-4"/>Testimonials</TabsTrigger>
           </TabsList>
@@ -72,35 +69,17 @@ export default function DepartmentDetailPage({ params }: { params: { slug: strin
                         <CardTitle className="font-headline">Career Pathways</CardTitle>
                         <CardDescription>Graduates from the {name} department have pursued a wide range of successful careers.</CardDescription>
                     </CardHeader>
-                    <CardContent>
-                       <div className="flex flex-wrap gap-2">
-                         {careers.map((career, index) => (
-                           <Badge key={index} variant="secondary" className="text-lg py-1 px-3">{career}</Badge>
-                         ))}
-                       </div>
-                    </CardContent>
-                </Card>
-            </TabsContent>
-
-            <TabsContent value="faculty">
-                 <Card>
-                    <CardHeader>
-                        <CardTitle className="font-headline">Meet Our Faculty</CardTitle>
-                        <CardDescription>Learn from experienced and dedicated professionals in the field.</CardDescription>
-                    </CardHeader>
-                    <CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {faculty.map((member, index) => (
-                        <div key={index} className="flex items-center gap-4 p-4 border rounded-lg">
-                            <Avatar className="h-16 w-16">
-                                <AvatarImage src={member.imageUrl} alt={member.name} data-ai-hint="person photo" />
-                                <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-                            </Avatar>
-                            <div>
-                                <h3 className="font-semibold">{member.name}</h3>
-                                <p className="text-sm text-muted-foreground">{member.title}</p>
-                            </div>
-                        </div>
-                        ))}
+                    <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                       {careers.map((career, index) => (
+                         <Card key={index}>
+                           <CardHeader>
+                              <CardTitle className="text-xl">{career.title}</CardTitle>
+                           </CardHeader>
+                           <CardContent>
+                              <p className="text-muted-foreground">{career.description}</p>
+                           </CardContent>
+                         </Card>
+                       ))}
                     </CardContent>
                 </Card>
             </TabsContent>

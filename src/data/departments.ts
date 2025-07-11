@@ -7,8 +7,7 @@ export interface Department {
   longDescription: string;
   icon: LucideIcon;
   courses: { title: string; description: string }[];
-  careers: string[];
-  faculty: { name: string; title: string; imageUrl: string }[];
+  careers: { title: string; description: string }[];
   research: { title: string; description: string }[];
   testimonials: { studentName: string; quote: string; imageUrl: string }[];
 }
@@ -26,10 +25,12 @@ export const departmentsData: Department[] = [
       { title: "Artificial Intelligence", description: "Explore the principles and applications of AI and machine learning." },
       { title: "Operating Systems", description: "Understand the core concepts of operating system design and implementation." },
     ],
-    careers: ["Software Engineer", "Systems Analyst", "AI/ML Engineer", "Cybersecurity Specialist", "Research Scientist"],
-    faculty: [
-      { name: "Dr. Alan Turing", title: "Professor & Chair", imageUrl: "https://placehold.co/100x100.png" },
-      { name: "Dr. Ada Lovelace", title: "Associate Professor", imageUrl: "https://placehold.co/100x100.png" },
+    careers: [
+        { title: "Software Engineer", description: "Design, develop, and maintain software applications for various platforms." },
+        { title: "Systems Analyst", description: "Analyze and design information systems to solve business problems." },
+        { title: "AI/ML Engineer", description: "Build and deploy machine learning models and artificial intelligence systems." },
+        { title: "Cybersecurity Specialist", description: "Protect computer systems and networks from security threats and cyber attacks." },
+        { title: "Research Scientist", description: "Conduct research to advance the field of computer science in academic or industrial settings." }
     ],
     research: [
       { title: "Quantum Computing", description: "Investigating the potential of quantum mechanics for computation." },
@@ -51,10 +52,12 @@ export const departmentsData: Department[] = [
         { title: "DevOps & CI/CD", description: "Learn the practices of continuous integration and continuous delivery for faster development cycles." },
         { title: "Mobile App Development", description: "Design and build applications for iOS and Android platforms." },
     ],
-    careers: ["Full Stack Developer", "DevOps Engineer", "Mobile App Developer", "Software Architect", "Quality Assurance Engineer"],
-    faculty: [
-        { name: "Dr. Grace Hopper", title: "Professor", imageUrl: "https://placehold.co/100x100.png" },
-        { name: "Dr. Linus Torvalds", title: "Assistant Professor", imageUrl: "https://placehold.co/100x100.png" },
+    careers: [
+        { title: "Full Stack Developer", description: "Work on both the front-end and back-end of web applications." },
+        { title: "DevOps Engineer", description: "Bridge the gap between software development and IT operations." },
+        { title: "Mobile App Developer", description: "Create applications for smartphones and tablets on platforms like iOS and Android." },
+        { title: "Software Architect", description: "Make high-level design choices and dictate technical standards." },
+        { title: "Quality Assurance Engineer", description: "Ensure software quality through manual and automated testing." }
     ],
     research: [
         { title: "Microservices Architecture", description: "Exploring best practices for building and deploying scalable microservices." },
@@ -76,10 +79,12 @@ export const departmentsData: Department[] = [
         { title: "Big Data Analytics", description: "Work with large-scale datasets using tools like Hadoop and Spark." },
         { title: "Data Visualization", description: "Learn to create effective and insightful visualizations to communicate data stories." },
     ],
-    careers: ["Data Scientist", "Data Analyst", "Machine Learning Engineer", "Business Intelligence Analyst", "Data Engineer"],
-    faculty: [
-        { name: "Dr. John Tukey", title: "Distinguished Professor", imageUrl: "https://placehold.co/100x100.png" },
-        { name: "Dr. Hadley Wickham", title: "Professor of Practice", imageUrl: "https://placehold.co/100x100.png" },
+    careers: [
+        { title: "Data Scientist", description: "Use analytical, statistical, and programming skills to collect, analyze, and interpret large data sets." },
+        { title: "Data Analyst", description: "Translate data into valuable business insights through reports and visualizations." },
+        { title: "Machine Learning Engineer", description: "Design and build production-ready machine learning systems." },
+        { title: "Business Intelligence Analyst", description: "Analyze data to help organizations make better business decisions." },
+        { title: "Data Engineer", description: "Develop, construct, test, and maintain architectures, such as databases and large-scale processing systems." }
     ],
     research: [
         { title: "Deep Learning for Medical Imaging", description: "Applying neural networks to diagnose diseases from medical scans." },

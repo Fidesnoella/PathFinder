@@ -4,8 +4,8 @@ import { Header } from "@/components/header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Campus Compass",
-  description: "Navigate your future at college with confidence. Explore departments, discover career paths, and get personalized recommendations.",
+  title: "Campus Navigator",
+  description: "Your guide to college success. Explore departments, discover career paths, and get personalized recommendations.",
 };
 
 export default function RootLayout({
