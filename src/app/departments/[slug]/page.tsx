@@ -2,7 +2,7 @@ import { departmentsData, Department } from "@/data/departments";
 import { notFound } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Briefcase, FlaskConical, MessageSquareQuote } from "lucide-react";
+import { BookOpen, Briefcase, FlaskConical, MessageSquareQuote, CheckCircle } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export async function generateStaticParams() {
@@ -25,103 +25,116 @@ export default function DepartmentDetailPage({ params }: { params: { slug: strin
   const { name, icon: Icon, longDescription, courses, careers, research, testimonials } = department;
 
   return (
-    <div className="bg-secondary">
+    <div className="bg-secondary/50">
       <div className="container mx-auto px-4 md:px-6 py-12">
-        <header className="mb-12">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="bg-primary text-primary-foreground rounded-lg p-4">
-              <Icon className="h-10 w-10" />
-            </div>
-            <h1 className="text-4xl font-bold font-headline tracking-tighter sm:text-5xl">{name}</h1>
+        <header className="mb-12 text-center">
+          <div className="inline-block bg-primary text-primary-foreground rounded-lg p-4 mb-4 shadow-md">
+            <Icon className="h-12 w-12" />
           </div>
-          <p className="text-xl text-muted-foreground">{longDescription}</p>
+          <h1 className="text-4xl font-bold font-headline tracking-tighter sm:text-5xl lg:text-6xl">{name}</h1>
+          <p className="max-w-3xl mx-auto mt-4 text-lg text-muted-foreground">{longDescription}</p>
         </header>
 
         <Tabs defaultValue="courses" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-2 lg:grid-cols-4 h-auto">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto bg-background/80 backdrop-blur-sm">
             <TabsTrigger value="courses"><BookOpen className="mr-2 h-4 w-4"/>Courses</TabsTrigger>
             <TabsTrigger value="careers"><Briefcase className="mr-2 h-4 w-4"/>Careers</TabsTrigger>
             <TabsTrigger value="research"><FlaskConical className="mr-2 h-4 w-4"/>Research</TabsTrigger>
             <TabsTrigger value="testimonials"><MessageSquareQuote className="mr-2 h-4 w-4"/>Testimonials</TabsTrigger>
           </TabsList>
           
-          <div className="bg-background rounded-b-lg mt-0 border border-t-0 p-6">
+          <div className="bg-background rounded-b-lg mt-0 border p-6 shadow-sm">
             <TabsContent value="courses">
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="font-headline">Curriculum Overview</CardTitle>
-                        <CardDescription>A selection of core courses offered in the {name} department.</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                        {courses.map((course, index) => (
-                        <div key={index} className="p-4 border rounded-lg">
-                            <h3 className="font-semibold text-lg">{course.title}</h3>
-                            <p className="text-muted-foreground">{course.description}</p>
-                        </div>
-                        ))}
-                    </CardContent>
-                </Card>
+              <Card className="border-0 shadow-none">
+                <CardHeader>
+                  <CardTitle className="font-headline text-3xl">Curriculum Overview</CardTitle>
+                  <CardDescription>Explore the core courses offered in the {name} department to build your foundational knowledge.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {courses.map((course, index) => (
+                    <div key={index} className="p-6 border-l-4 border-primary bg-secondary/50 rounded-r-lg">
+                      <h3 className="font-semibold text-xl text-primary">{course.title}</h3>
+                      <p className="text-muted-foreground mt-2">{course.description}</p>
+                      <div className="mt-4">
+                        <h4 className="font-semibold mb-2">Key Topics:</h4>
+                        <ul className="space-y-1 list-inside">
+                          {course.topics.map((topic, i) => (
+                            <li key={i} className="flex items-center text-sm text-foreground">
+                              <CheckCircle className="h-4 w-4 mr-2 text-accent" />
+                              {topic}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
             </TabsContent>
 
             <TabsContent value="careers">
-                 <Card>
-                    <CardHeader>
-                        <CardTitle className="font-headline">Career Pathways</CardTitle>
-                        <CardDescription>Graduates from the {name} department have pursued a wide range of successful careers.</CardDescription>
-                    </CardHeader>
-                    <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                       {careers.map((career, index) => (
-                         <Card key={index}>
-                           <CardHeader>
-                              <CardTitle className="text-xl">{career.title}</CardTitle>
-                           </CardHeader>
-                           <CardContent>
-                              <p className="text-muted-foreground">{career.description}</p>
-                           </CardContent>
-                         </Card>
-                       ))}
-                    </CardContent>
-                </Card>
+              <Card className="border-0 shadow-none">
+                <CardHeader>
+                  <CardTitle className="font-headline text-3xl">Career Pathways</CardTitle>
+                  <CardDescription>Graduates from the {name} department have pursued a wide range of successful and impactful careers.</CardDescription>
+                </CardHeader>
+                <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {careers.map((career, index) => (
+                    <Card key={index} className="bg-secondary/50 border-primary/20 border-t-4 hover:shadow-lg transition-shadow">
+                      <CardHeader>
+                        <CardTitle className="text-xl text-primary">{career.title}</CardTitle>
+                        <p className="text-sm text-muted-foreground pt-1">{career.salary}</p>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-foreground">{career.description}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </CardContent>
+              </Card>
             </TabsContent>
 
             <TabsContent value="research">
-                 <Card>
-                    <CardHeader>
-                        <CardTitle className="font-headline">Active Research Projects</CardTitle>
-                        <CardDescription>Our department is at the forefront of innovation and discovery.</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                        {research.map((project, index) => (
-                        <div key={index} className="p-4 border rounded-lg">
-                            <h3 className="font-semibold text-lg">{project.title}</h3>
-                            <p className="text-muted-foreground">{project.description}</p>
-                        </div>
-                        ))}
-                    </CardContent>
-                </Card>
+              <Card className="border-0 shadow-none">
+                <CardHeader>
+                  <CardTitle className="font-headline text-3xl">Active Research Projects</CardTitle>
+                  <CardDescription>Our department is at the forefront of innovation and discovery. Get involved in cutting-edge research.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {research.map((project, index) => (
+                    <div key={index} className="p-6 border rounded-lg hover:bg-secondary/30 transition-colors">
+                      <h3 className="font-semibold text-lg text-accent">{project.title}</h3>
+                      <p className="text-muted-foreground mt-1">{project.description}</p>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
             </TabsContent>
 
             <TabsContent value="testimonials">
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="font-headline">Student Voices</CardTitle>
-                        <CardDescription>Hear what students have to say about their experience in the {name} department.</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
-                        {testimonials.map((testimonial, index) => (
-                        <blockquote key={index} className="p-4 border-l-4 border-primary bg-secondary rounded-r-lg">
-                            <p className="italic mb-4">"{testimonial.quote}"</p>
-                            <footer className="flex items-center gap-2">
-                                 <Avatar className="h-10 w-10">
-                                    <AvatarImage src={testimonial.imageUrl} alt={testimonial.studentName} data-ai-hint="student photo" />
-                                    <AvatarFallback>{testimonial.studentName.charAt(0)}</AvatarFallback>
-                                </Avatar>
-                                <cite className="font-semibold not-italic">{testimonial.studentName}</cite>
-                            </footer>
-                        </blockquote>
-                        ))}
-                    </CardContent>
-                </Card>
+              <Card className="border-0 shadow-none">
+                <CardHeader>
+                  <CardTitle className="font-headline text-3xl">Student Voices</CardTitle>
+                  <CardDescription>Hear what students have to say about their experience in the {name} department.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {testimonials.map((testimonial, index) => (
+                    <blockquote key={index} className="p-6 border-l-4 border-primary bg-secondary/50 rounded-r-lg shadow-sm">
+                      <p className="italic text-lg mb-4">"{testimonial.quote}"</p>
+                      <footer className="flex items-center gap-4">
+                        <Avatar className="h-12 w-12">
+                          <AvatarImage src={testimonial.imageUrl} alt={testimonial.studentName} data-ai-hint="student photo" />
+                          <AvatarFallback>{testimonial.studentName.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <cite className="font-semibold text-base not-italic text-primary">{testimonial.studentName}</cite>
+                          <p className="text-sm text-muted-foreground">{testimonial.program}</p>
+                        </div>
+                      </footer>
+                    </blockquote>
+                  ))}
+                </CardContent>
+              </Card>
             </TabsContent>
           </div>
         </Tabs>
